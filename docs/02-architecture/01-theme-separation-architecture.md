@@ -1,6 +1,5 @@
 # Architettura Separazione Tema - Laravel Pizza Meetup
 
-**Data**: 2026-02-02  
 **Stato**: Documentazione fondamentale per il progetto
 
 ---
@@ -219,4 +218,3 @@ La separazione del tema è **fondamentale** per il funzionamento del progetto La
 ---
 
 **Documentazione**: `laravel/Themes/Meetup/docs/02-architecture/01-theme-separation-architecture.md`  
-**Ultimo Aggiornamento**: 2026-02-02

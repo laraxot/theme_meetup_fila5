@@ -270,5 +270,3 @@ Should add:
 
 ---
 
-**Created**: 2025-12-01
-**Next Review**: After implementing About and Contact pages
