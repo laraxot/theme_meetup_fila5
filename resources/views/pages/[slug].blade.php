@@ -47,25 +47,6 @@ if (in_array($slug, $authRoutes)) {
     return;
 }
 
-// Check if this is an event detail page (/events/{slug})
-// The slug is in the fallbackPlaceholder since Folio uses it as catch-all
-// fallbackPlaceholder contains: "it/events/laravel-11-release-pizza-party" or "events/laravel-11-release-pizza-party"
-$eventSlug = request()->route('fallbackPlaceholder') ?? $slug;
-if (!empty($eventSlug) && is_string($eventSlug)) {
-    // Remove locale prefix if present (e.g., "it/events/slug" -> "events/slug")
-    $eventSlug = preg_replace('#^([a-z]{2}/)?events/#', 'events/', $eventSlug);
-    
-    if (str_starts_with($eventSlug, 'events/')) {
-        $actualSlug = substr($eventSlug, 7); // Remove 'events/' prefix
-        if (!empty($actualSlug)) {
-            $event = \Modules\Meetup\Models\Event::where('slug', $actualSlug)->first();
-            if ($event) {
-                echo view('pub_theme::components.blocks.events.detail', ['event' => $event]);
-                return;
-            }
-        }
-    }
-}
 @endphp
 
 <x-layouts.app>
