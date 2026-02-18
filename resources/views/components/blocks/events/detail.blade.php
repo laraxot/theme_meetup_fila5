@@ -59,7 +59,7 @@ $badgeClass = $eventData['status'] === 'upcoming' ? 'bg-green-600' : 'bg-slate-5
 
 <div class="min-h-screen bg-slate-50 dark:bg-slate-900 overflow-x-hidden relative">
     {{-- Background Particles - using theme's Alpine.js component --}}
-@include('pub_theme::components.ui.particles')
+    @include('pub_theme::components.ui.particles')
 
     {{-- Hero Section with Cover Image --}}
     <div class="relative bg-slate-900 h-[400px] md:h-[500px] z-0">
