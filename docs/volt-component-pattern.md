@@ -1,4 +1,160 @@
-# Volt Component Pattern in Themes
+# Volt Component Pattern - Meetup Theme
+
+## 🚫 ANTI-PATTERN: BLADE con PHP INLINE (VIETATO)
+
+```php
+<?php
+// ❌❌❌ MAI FARE QUESTO - COMPLETAMENTE SBAGLIATO ❌❌❌
+declare(strict_types=1);
+
+use Modules\Meetup\Models\Event;
+
+// Carica l'evento dallo slug - LOGICA INLINE VIETATA!
+$slug0 = $slug0 ?? '';
+$slugToUse = $slug0;
+if (empty($slugToUse)) {
+    $slugToUse = Request::segment(3);
+}
+$event = null;
+if (!empty($slugToUse)) {
+    $event = Event::where('slug', $slugToUse)->first();
+}
+$eventsUrl = LaravelLocalization::localizeUrl('/events');
+$isUpcoming = $event?->start_date?->isFuture() ?? true;
+?>
+
+<div>
+    @if($event)
+        <p>{{ $event->title }}</p>
+    @endif
+</div>
+```
+
+**Perché è SBAGLIATO:**
+- ❌ Non reattivo (no Livewire)
+- ❌ Logica sparsa nel template
+- ❌ Difficile da testare
+- ❌ Non type-safe
+- ❌ Non segue filosofia Laraxot
+- ❌ Mix di PHP e Blade senza struttura
+
+**⚠️ MAI tornare a questo pattern. È un errore architetturale grave.**
+
+---
+
+## 🚫 ANTI-PATTERN: FLAT PROPERTIES (VIETATO - Violazione DRY/KISS)
+
+```php
+<?php
+// ❌❌❌ MAI FARE QUESTO - VIOLA DRY E KISS ❌❌❌
+
+new class extends Component {
+    public ?Event $event = null;
+    
+    // ❌ Proprietà duplicate dal modello - INUTILE!
+    public string $title = '';
+    public string $slug = '';
+    public string $description = '';
+    public string $date = '';
+    public string $time = '';
+    public string $location = '';
+    public int $attendeesCount = 0;
+    public int $maxAttendees = 100;
+    
+    public function mount(): void
+    {
+        // ❌ Duplicazione dati dal modello - SPRECO!
+        $this->title = $this->event->title;
+        $this->slug = $this->event->slug;
+        $this->description = $this->event->description;
+        $this->date = $this->event->start_date->format('Y-m-d');
+        $this->time = $this->event->start_date->format('H:i');
+        $this->location = $this->event->location;
+        $this->attendeesCount = $this->event->attendees_count;
+        $this->maxAttendees = $this->event->max_attendees;
+    }
+};
+?>
+
+<div>
+    <!-- ❌ Accesso a proprietà duplicate invece del modello -->
+    <h1>{{ $this->title }}</h1>
+    <p>{{ $this->date }} - {{ $this->time }}</p>
+    <p>{{ $this->location }}</p>
+</div>
+```
+
+**Perché è SBAGLIATO:**
+- ❌ **Violazione DRY**: Duplica dati già presenti nel modello
+- ❌ **Violazione KISS**: Complica inutilmente il codice
+- ❌ **Sincronizzazione**: Se il modello cambia, le proprietà sono obsolete
+- ❌ **Memoria**: Occupazione RAM inutile
+- ❌ **Manutenzione**: Più codice = più bug
+- ❌ **Type Safety**: Perdi i type hints del modello
+
+**⚠️ MAI appiattire le proprietà del modello. Accedi sempre direttamente al modello.**
+
+---
+
+## ✅ PATTERN CORRETTO: MODELLO come UNICA FONTE DI VERITÀ
+
+Il **Volt Component Pattern** corretto segue i principi DRY e KISS:
+
+> **Il modello è l'unica fonte di verità. Non duplicare mai i dati del modello in proprietà separate.**
+
+### Esempio Corretto
+
+```php
+<?php
+
+/**
+ * Event Detail - Volt Component
+ * Unica fonte di verità: Modello Event.
+ */
+
+use Livewire\Volt\Component;
+use Modules\Meetup\Models\Event;
+use Illuminate\Support\Carbon;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
+new class extends Component {
+    // Props from parent/route
+    public ?Event $event = null;
+    public ?Event $item = null;
+    public string $container0 = '';
+    public string $slug0 = '';
+    
+    // Component state
+    public bool $showBookingModal = false;
+    public string $bookingName = '';
+    public string $bookingEmail = '';
+    public string $shareUrl = '';
+    
+    public function mount(): void
+    {
+        if ($this->event === null && $this->item === null && !empty($this->slug0)) {
+            $this->event = Event::where('slug', $this->slug0)->first();
+        }
+        
+        if ($this->event) {
+            $this->shareUrl = LaravelLocalization::localizeUrl('/events/' . $this->event->slug);
+        }
+    }
+    
+    public function isUpcoming(): bool
+    {
+        return $this->event?->start_date?->isFuture() ?? false;
+    }
+};
+?>
+
+<div>
+    @if($this->event)
+        <h1>{{ $this->event->title }}</h1>
+        <p>{{ $this->isUpcoming() ? 'Upcoming' : 'Past' }}</p>
+    @endif
+</div>
+```
 
 ## Overview
 
