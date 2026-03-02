@@ -1,7 +1,19 @@
 # Meetup Theme Documentation Index
 
+## Roadmap
+
+- [Roadmap Meetup Theme](roadmap/00-index.md) - Visione, fasi, qualità
+
 ## Core Concepts
 
+- [Composer Packages Study](../../../../docs/architecture/composer-packages-study.md) - Studio completo dipendenze runtime e implicazioni chaos monkey.
+- [Riferimento pacchetti](../../../../docs/composer-packages-reference.md) | [Inventario 312 pacchetti](../../../../docs/architecture/composer-packages-full-inventory.md) - Folio, Volt, Livewire, Filament, Tailwind (via root/moduli)
+- [Package Dependency Chaos Map](package-dependency-chaos-map.md) - Mappa pacchetti e rischio runtime lato tema.
+- [CMS Theme Runtime Memory](memories/cms-theme-runtime-memory.md) - Operational memory for fast diagnosis of theme/CMS runtime failures.
+- [Chaos Monkey Debug Skills](chaos-monkey-debug-skills.md) - Repeatable debugging skills and incident checklist for randomized breakage.
+- [Chaos Monkey Checklist](chaos-monkey-checklist.md) - Scenario -> symptom -> diagnosis -> fix playbook (theme side).
+- [Chaos Monkey Incident Playbook](chaos-monkey-incident-playbook.md) - Protocollo operativo di recovery per rotture su tema/asset/traduzioni.
+- [Chaos Monkey Theme Recovery Playbook](chaos-monkey-theme-recovery-playbook.md) - Theme-specific recovery recipes for layout, sections, and block rendering.
 - [Critical Rules Consolidated](critical-rules-consolidated.md) - Essential rules for Meetup theme
 - [Critical Rules and Patterns](critical-rules-and-patterns.md) - Stack (Folio, Volt, Filament 5, Tailwind)
 - [Volt Automatic Route Parameter Binding](volt-automatic-route-binding.md) - Volt handles route parameters automatically, no manual extraction needed
@@ -19,24 +31,22 @@
 - [Footer logo confronto](footer-logo-confronto.md) - Logo footer vs laravelpizza.com, screenshot, roadmap
 - [Theme Resolution and Workflow](theme-resolution-and-workflow.md) - Risoluzione tema (APP_URL → pub_theme), build e copy
 - [MCP Configuration](mcp-configuration.md) - MCP per confronto grafica e task
-- [Laravel Localization Implementation](laravel-localization-implementation-complete.md) - Complete Laravel Localization setup and configuration
+- [Laravel Localization Implementation](folio-page-localization.md) - Complete Laravel Localization setup and configuration
 - [Localization Standard](localization-standard.md) - Standard localization practices and patterns
-- [UI/UX Language Switcher](../../modules/meetup/docs/ui-ux-language-switcher-standard.md) - Design standards for language selection
+- [UI/UX Language Switcher](../../../Modules/Meetup/docs/ui-ux-language-switcher-standard.md) - Design standards for language selection
 - [Events Page Comparison](events-page-comparison.md) - Comparison of events page with laravelpizza.com
 - [Events Comparison](events-comparison/) - Detailed events page comparison analysis
 - [Visual Comparison](visual-comparison/) - Visual comparison tools and analysis
 
 ## Replikate - LaravelPizza Replication
 
-- [Replikate Directory](replikate/) - Structured prompts for replicating laravelpizza.com
-  - [README](replikate/readme.md) - Guide to using replikate prompts
-  - [Replicate Analysis](replikate/replicate.md) - Detailed target site analysis and implementation plan
-  - [Main Replication Prompt](replikate/main_replication_prompt.md) - Master prompt for site alignment
-  - [Footer Improvement](replikate/footer_improvement_prompt.md) - Specific footer UI/UX task
-  - [Home Content Review](replikate/home_content_review_prompt.md) - Homepage content analysis task
-  - [Prompt Writing Guide](replikate/prompt-writing-guide.md) - Standards for writing prompts
-  - [Corrections Summary](replikate/corrections-summary-[date].md) - History of prompt corrections (Feb 2026)
-  - [Legacy Footer](replikate/replikate_footer.txt) - Deprecated prompt (kept for reference)
+- [Replikate Directory](prompts/replikate/) - Structured prompts for replicating laravelpizza.com
+  - [README](prompts/replikate/README.md) - Guide to using replikate prompts
+  - [Replicate Analysis](prompts/replikate/replicate.md) - Detailed target site analysis and implementation plan
+  - [Main Replication Prompt](prompts/replikate/main-replication-prompt.md) - Master prompt for site alignment
+  - [Footer Improvement](prompts/replikate/footer.md) - Specific footer UI/UX task
+  - [Home Content Review](prompts/replikate/home.md) - Homepage content analysis task
+  - [Prompt Writing Guide](prompts/replikate/prompt-writing-guide.md) - Standards for writing prompts
 
 ## Filament 5.x Upgrade
 
@@ -93,3 +103,7 @@
 - [Missing View Fix Plan](missing-view-fix-plan.md) - Missing view fixes
 - [Missing Layout Section Fix Plan](missing-layout-section-fix-plan.md) - Layout fixes
 - [Troubleshooting Directory](troubleshooting/) - Detailed troubleshooting guides
+
+## Dependency Intelligence
+
+- [Dependency intelligence](dependency-intelligence.md)

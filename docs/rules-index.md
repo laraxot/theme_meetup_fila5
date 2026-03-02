@@ -51,7 +51,7 @@
 
 9. **[Grafica vs laravelpizza.com](./grafica-confronto-laravelpizza.md)**, **[Differenze grafica e miglioramenti](./differenze-grafica-e-miglioramenti.md)**, **[Approfondimento tecnico](./differenze-grafica-approfondimento.md)** (file, codice, checklist), **[Footer logo confronto](./footer-logo-confronto.md)**
    - Confronto struttura e contenuti; uso MCP o `npm run screenshots` / `npm run screenshots:footer` (Playwright)
-   - Screenshot in [screenshots/grafica-confronto](screenshots/grafica-confronto/), [screenshots/footer-logo-confronto](screenshots/footer-logo-confronto/readme.md)
+   - Screenshot in [screenshots/grafica-confronto](screenshots/grafica-confronto/), [screenshots/footer-logo-confronto](screenshots/footer-logo-confronto/README.md)
 
 10. **[Accessibilità & WCAG](./wcag.md)**
     - Checklist WCAG 2.2 Level AA
@@ -61,14 +61,38 @@
 
 ### Riferimenti Cross-Module
 
-11. **[Regole Xot](../../modules/xot/docs/critical-rules-consolidated.md)**
+11. **[Regole Xot](../../../Modules/Xot/docs/critical-rules-consolidated.md)**
     - Regole generali Laraxot
     - Filosofia Migrazioni
     - Estensioni Filament
 
-11. **[Regole Modulo Meetup](../../modules/meetup/docs/critical-rules-consolidated.md)**
+12. **[Regole Modulo Meetup](../../../Modules/Meetup/docs/critical-rules-consolidated.md)**
     - Architettura Frontoffice
     - Folio + Volt pattern
+
+13. **[CMS Theme Runtime Memory](./memories/cms-theme-runtime-memory.md)**
+   - Verità runtime persistenti per debug rapido
+   - Breakpoint ad alta probabilità sotto chaos
+
+14. **[Chaos Monkey Debug Skills](./chaos-monkey-debug-skills.md)**
+   - Skill operative per incident response su template/theme/CMS
+   - Checklist di recovery in 5 punti
+
+15. **[Chaos Monkey Incident Playbook](./chaos-monkey-incident-playbook.md)**
+   - Protocollo operativo ridotto per recovery rapido
+   - Guardrail per non introdurre regressioni durante fix urgenti
+
+16. **[Chaos Monkey Theme Recovery Playbook](./chaos-monkey-theme-recovery-playbook.md)**
+   - Runbook operativo per guasti su layout, section e blocchi tema
+   - Procedure di ripristino rapido senza rompere la pipeline CMS
+
+17. **[Dependency Intelligence](./dependency-intelligence.md)**
+   - Toolchain frontend del tema + runtime PHP critico per rendering
+   - Punto di controllo rapido in caso di regressioni da aggiornamento pacchetti
+
+17. **[Package Dependency Chaos Map](./package-dependency-chaos-map.md)**
+   - Pacchetti critici lato tema
+   - Failure mode e verifiche operative
 
 ## 🔄 Aggiornamenti Recenti
 
@@ -78,3 +102,9 @@
 - Consolidata Vite Configuration
 - Consolidata Metatags Component
 - Aggiunti Filament 5 theme reference e Grafica vs laravelpizza.com (MCP)
+- Aggiunto Chaos Monkey Incident Playbook
+- Aggiunto Chaos Monkey Theme Recovery Playbook
+- Aggiunto Package Dependency Chaos Map
+
+18. **[Composer Packages Study Rules](../../../../docs/rules/composer-packages-study-rules.md)**
+   - Regole di governance pacchetti e prevenzione regressioni da dipendenze
