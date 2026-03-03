@@ -234,4 +234,4 @@ date' => [
 
 ---
 
-*Ultimo aggiornamento: 2025-02-19*
+*
