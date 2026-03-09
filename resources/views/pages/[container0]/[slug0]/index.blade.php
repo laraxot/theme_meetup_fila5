@@ -26,11 +26,9 @@ new class extends Component {
 ?>
 
 <x-layouts.app>
-    @volt('container0.view')
-        <x-page 
-            side="content" 
-            :slug="$pageSlug" 
-            :data="$data"
-        />
-    @endvolt
+    <x-page 
+        side="content" 
+        :slug="$pageSlug" 
+        :data="$data"
+    />
 </x-layouts.app>

@@ -1,17 +1,18 @@
-@props([
-    'event' => null,
-    'item' => null,
-    'container0' => '',
-    'slug0' => '',
-])
-
 @php
-    $eventModel = $event instanceof \Modules\Meetup\Models\Event
-        ? $event
-        : ($item instanceof \Modules\Meetup\Models\Event ? $item : null);
+    $eventInput = $event ?? null;
+    $itemInput = $item ?? null;
+    $slugInput = $slug0 ?? '';
 
-    if ($eventModel === null && is_string($slug0) && $slug0 !== '') {
-        $eventModel = \Modules\Meetup\Models\Event::query()->where('slug', $slug0)->first();
+    $eventModel = $eventInput instanceof \Modules\Meetup\Models\Event
+        ? $eventInput
+        : ($itemInput instanceof \Modules\Meetup\Models\Event ? $itemInput : null);
+
+    if (request()->has('debug')) {
+        dd('eventInput', $eventInput, 'itemInput', $itemInput, 'slugInput', $slugInput, 'request', request()->all());
+    }
+
+    if ($eventModel === null && is_string($slugInput) && $slugInput !== '') {
+        $eventModel = \Modules\Meetup\Models\Event::query()->where('slug', $slugInput)->first();
     }
 
     $eventsIndexUrl = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeUrl('/events');

@@ -14,6 +14,7 @@ Per questo motivo non e' un componente Volt/Livewire montato. Deve quindi restar
 2. compatibile con variabili PHP semplici (`$event`, `$item`, `$slug0`, `$container0`)
 3. senza uso di `$this->...`
 4. senza `wire:*` che presuppongono uno stato Livewire nel block incluso
+5. senza `@props(...)`, perche' `@include` non garantisce la semantica di anonymous component Blade
 
 ## Regola operativa
 
@@ -57,6 +58,12 @@ new class extends Component {
 
 Dentro un block renderizzato via `@include`, questo pattern rompe perche' il template viene valutato nel contesto del componente padre, non come istanza Livewire indipendente.
 
+```blade
+@props(['event' => null])
+```
+
+Anche questo rompe o genera warning in una view inclusa come file Blade normale, perche' la vista non viene compilata come anonymous component.
+
 ## Vista corretta
 
 ```blade
@@ -68,6 +75,7 @@ Dentro un block renderizzato via `@include`, questo pattern rompe perche' il tem
 
 - niente `$this->event` nei block CMS inclusi
 - niente `wire:model` o `wire:click` se il block non e' montato come componente Livewire
+- niente `@props(...)` nei block CMS inclusi via `@include`
 - Volt solo dove il componente viene montato davvero
 - KISS e DRY: il modello `Event` resta l'unica fonte di verita'
 

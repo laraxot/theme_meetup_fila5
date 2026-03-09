@@ -2,9 +2,9 @@
 
 ## 🎯 Principio: Caricamento Automatico Modello da Slug
 
-Il componente `events/detail.blade.php` è un **Plain Blade Component** (NON Volt, NON Livewire) che carica automaticamente l'evento dallo slug nell'URL.
+Il componente `events/detail.blade.php` è una **plain Blade view inclusa dal CMS** (NON Volt, NON Livewire, NON anonymous component Blade) che carica automaticamente l'evento dallo slug nell'URL.
 
-## ✅ Pattern Corretto: Plain Blade
+## ✅ Pattern Corretto: Include-Safe Plain Blade
 
 ```php
 <?php
@@ -21,15 +21,20 @@ use Illuminate\Support\Facades\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Modules\Meetup\Models\Event;
 
-// Carica l'evento dallo slug
-$slug0 = $slug0 ?? '';
-$slugToUse = $slug0;
+// La view puo' essere inclusa senza tutte le variabili definite.
+$slugToUse = $slug0 ?? '';
 if (empty($slugToUse)) {
     $slugToUse = Request::segment(3);
 }
-$event = null;
-if (!empty($slugToUse)) {
-    $event = Event::where('slug', $slugToUse)->first();
+
+$eventInput = $event ?? null;
+$itemInput = $item ?? null;
+$event = $eventInput instanceof Event
+    ? $eventInput
+    : ($itemInput instanceof Event ? $itemInput : null);
+
+if ($event === null && !empty($slugToUse)) {
+    $event = Event::query()->where('slug', $slugToUse)->first();
 }
 
 // Variabili per il template
@@ -67,7 +72,7 @@ $currentAttendees = $event?->attendees_count ?? 0;
    ↓
 10. Component Include: @include('pub_theme::components.blocks.events.detail', merged_data)
     ↓
-11. Component Props: $slug0 = 'laravel-beginners-pizza-night' (da $data passato da Page)
+11. Variabili PHP semplici: `$slug0 = 'laravel-beginners-pizza-night'` (da `$data` passato da Page)
     ↓
 12. Model Loading: Event::where('slug', $slug0)->first() (nel componente events/detail.blade.php)
     ↓
@@ -108,6 +113,7 @@ Il JSON content block referenzia solo la view, SENZA logica:
 
 ❌ Non usare Volt/Livewire nei block components
 ❌ Non usare `wire:` directives nei block components  
+❌ Non usare `@props([...])` in una view renderizzata via `@include`
 ❌ Non passare dati complessi nel JSON block
 
 ## ✅ Best Practices
