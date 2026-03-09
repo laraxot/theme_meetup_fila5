@@ -27,11 +27,9 @@ Il resolve corretto del modello e':
 use Modules\Meetup\Models\Event;
 
 $resolvedEvent = $event instanceof Event ? $event : ($item instanceof Event ? $item : null);
-
-if ($resolvedEvent === null && filled($slug0 ?? null)) {
-    $resolvedEvent = Event::query()->where('slug', (string) $slug0)->first();
-}
 ```
+
+Nel path standard `/it/events/{slug}`, `$resolvedEvent` deve arrivare dal route layer (Folio page plain Blade o equivalente) tramite `ResolvePageAction`, non da una query eseguita dentro la view.
 
 ## Helper logic
 
@@ -76,6 +74,7 @@ Anche questo rompe o genera warning in una view inclusa come file Blade normale,
 - niente `$this->event` nei block CMS inclusi
 - niente `wire:model` o `wire:click` se il block non e' montato come componente Livewire
 - niente `@props(...)` nei block CMS inclusi via `@include`
+- niente query `Event::query()->where('slug', ...)` nel block di dettaglio standard
 - Volt solo dove il componente viene montato davvero
 - KISS e DRY: il modello `Event` resta l'unica fonte di verita'
 

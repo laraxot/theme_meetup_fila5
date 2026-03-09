@@ -1,19 +1,10 @@
 @php
     $eventInput = $event ?? null;
     $itemInput = $item ?? null;
-    $slugInput = $slug0 ?? '';
 
     $eventModel = $eventInput instanceof \Modules\Meetup\Models\Event
         ? $eventInput
         : ($itemInput instanceof \Modules\Meetup\Models\Event ? $itemInput : null);
-
-    if (request()->has('debug')) {
-        dd('eventInput', $eventInput, 'itemInput', $itemInput, 'slugInput', $slugInput, 'request', request()->all());
-    }
-
-    if ($eventModel === null && is_string($slugInput) && $slugInput !== '') {
-        $eventModel = \Modules\Meetup\Models\Event::query()->where('slug', $slugInput)->first();
-    }
 
     $eventsIndexUrl = \Mcamara\LaravelLocalization\Facades\LaravelLocalization::localizeUrl('/events');
 
