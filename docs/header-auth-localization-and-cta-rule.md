@@ -16,10 +16,11 @@ Per guest navigation:
 - `login` deve essere CTA secondaria;
 - `register` deve essere CTA primaria;
 - i due bottoni devono avere gerarchia visiva chiara e linkare alle route localizzate `/auth/login` e `/auth/register`.
+- la `headernav` CMS non deve duplicare markup/style/copy auth: deve delegare al partial condiviso `pub_theme::components.ui.auth-buttons`.
 
 ## Test richiesto
 
 La homepage localizzata deve verificare almeno:
 
 - `/it` mostra `Accedi` e `Registrati`
-- `/de` non mostra label italiane e mostra label tedesche
+- `/de` non mostra label italiane e mostra `Anmelden` e `Registrieren`

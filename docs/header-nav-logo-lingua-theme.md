@@ -22,7 +22,7 @@ Dropdown in linea con la grafica del sito:
 - login come azione secondaria con bordo/ghost button;
 - register come primary CTA piena, piu' evidente e con hit area generosa;
 - stessa semantica su desktop e mobile.
-- Verifica minima: su `/de` il guest header deve mostrare `Anmelden` e `Konto erstellen`, e non deve mostrare label italiane.
+- Verifica minima: su `/de` il guest header deve mostrare `Anmelden` e `Registrieren`, e non deve mostrare label italiane.
 
 ## Toggle light/dark
 
