@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 title: "entity"
 type: note
 tags: [documentation]
@@ -11,6 +12,11 @@ module: theme
 topic: entity
 canonical: ../../../../docs/shared-components/entity.md  # target mancante, verificato 2026-10-08
 status: stub
+=======
+module: theme
+topic: entity
+canonical: ../../../../docs/shared-components/entity.md
+>>>>>>> laraxot/dev
 ---
 
 See canonical documentation: ../../../../docs/shared-components/entity.md

@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 title: "concept"
 type: note
 tags: [documentation]
@@ -11,6 +12,11 @@ module: theme
 topic: concept
 canonical: ../../../../docs/shared-components/concept-Modules.md  # target mancante, verificato 2026-10-08
 status: stub
+=======
+module: theme
+topic: concept
+canonical: ../../../../docs/shared-components/concept-Modules.md
+>>>>>>> laraxot/dev
 ---
 
 See canonical documentation: ../../../../docs/shared-components/concept-Modules.md
