@@ -12,9 +12,6 @@ module: theme
 topic: source
 canonical: ../../../../docs/shared-components/source-Modules.md  # target mancante, verificato 2026-10-08
 status: stub
-module: theme
-topic: source
-canonical: ../../../../docs/shared-components/source-Modules.md
 ---
 
 See canonical documentation: ../../../../docs/shared-components/source-Modules.md

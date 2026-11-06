@@ -12,9 +12,6 @@ module: theme
 topic: merge-conflicts-list
 canonical: ../../docs/shared-components/merge-conflicts-list.md  # target mancante, verificato 2026-10-08
 status: stub
-module: theme
-topic: merge-conflicts-list
-canonical: ../../docs/shared-components/merge-conflicts-list.md
 ---
 
 See canonical documentation: ../../docs/shared-components/merge-conflicts-list.md

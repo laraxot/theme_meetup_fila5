@@ -78,4 +78,3 @@ Developers are encouraged to contribute to this documentation to keep it accurat
 - **Component**: `resources/views/components/blocks/events/list.blade.php`.
     - **Props**: Receives `$eventsData` (array of `BlockData` objects).
     - **Visuals**: Uses Tailwind CSS grid layout.
-

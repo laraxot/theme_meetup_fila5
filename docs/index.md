@@ -444,4 +444,3 @@ For issues and questions:
 **
 **Version**: 1.0.0
 **Maintainer**: Laravel Pizza Team
-
