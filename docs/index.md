@@ -201,14 +201,14 @@ npm install
 ```bash
 npm run dev    # Development server with hot reload
 npm run build  # Production build
-npm run copy   # Copy assets to public_html
+# niente copy: public_html/themes/Meetup è un symlink a public/
 ```
 
 ### CSS/JS Workflow (CRITICAL)
 1. Edit files in `resources/css/` or `resources/js/`
 2. Run `npm run build` to compile assets
-3. Run `npm run copy` to publish to `public_html/themes/Meetup/`
-4. **IMPORTANT**: Without `npm run build` and `npm run copy`, changes are NOT visible!
+3. niente `npm run copy`: `public_html/themes/<Tema>` è un symlink a `../../laravel/Themes/<Tema>/public`
+4. niente `npm run copy`: `public_html/themes/<Tema>` è un symlink a `../../laravel/Themes/<Tema>/public`
 
 ### Testing
 
@@ -374,7 +374,7 @@ export default defineConfig({
 ```bash
 cd laravel/Themes/Meetup
 npm run build
-npm run copy
+# niente copy: public_html/themes/Meetup è un symlink a public/
 ```
 
 ### Translations Not Showing

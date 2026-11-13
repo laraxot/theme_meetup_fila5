@@ -3,6 +3,9 @@
 declare(strict_types=1);
 
 return [
+    'select_language' => 'cambia lingua',
+    'skip_to_content' => 'Vai al contenuto principale',
+    'toggle_menu' => 'Apri o chiudi il menu',
     'main' => 'Navigazione principale',
     'site_title' => 'Laravel Pizza Meetups',
     'home' => 'Home',
@@ -16,6 +19,7 @@ return [
         'my_events' => 'I miei eventi',
         'nearby_events' => 'Eventi vicini',
         'my_profile' => 'Profilo',
+        'edit_profile' => 'Modifica il profilo',
         'settings' => 'Impostazioni',
         'logout' => 'Esci',
     ],
@@ -24,6 +28,9 @@ return [
         'register' => 'Registrati',
     ],
     'footer' => [
+        'privacy' => 'Privacy',
+        'terms' => 'Termini e condizioni',
+        'events' => 'Eventi',
         'community' => 'Community',
         'community_chat' => 'Chat della Community',
         'code_of_conduct' => 'Codice di Condotta',
