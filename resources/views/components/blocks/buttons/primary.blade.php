@@ -55,7 +55,7 @@ $colorClasses = [
         'link' => 'text-gray-600 hover:text-gray-800 underline focus:ring-gray-500'
     ],
     'success' => [
-        'solid' => 'bg-green-700 text-white hover:bg-green-700 focus:ring-green-500',
+        'solid' => 'bg-green-600 text-white hover:bg-green-700 focus:ring-green-500',
         'outline' => 'border-2 border-green-600 text-green-600 hover:bg-green-50 focus:ring-green-500',
         'ghost' => 'text-green-600 hover:bg-green-50 focus:ring-green-500',
         'link' => 'text-green-600 hover:text-green-800 underline focus:ring-green-500'
@@ -105,7 +105,7 @@ $buttonClasses = collect([
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
         </svg>
-        <span>Caricamento...</span>
+        <span>{{ __('pub_theme::common.states.loading.label') }}</span>
     @else
         @if($icon && $iconPosition === 'left')
             <span class="mr-2">{!! $icon !!}</span>
