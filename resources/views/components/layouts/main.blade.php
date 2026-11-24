@@ -21,7 +21,7 @@
     <x-cms::head :title="$metaTitle" :description="$metaDescription" :stylesheet="$needsFilament ? 'resources/css/app.css' : 'resources/css/site.css'" />
     <body class="font-sans antialiased bg-slate-100 text-slate-900 dark:bg-slate-900 dark:text-white transition-colors duration-200">
         <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-white focus:text-black focus:px-4 focus:py-3 focus:rounded-lg">
-            {{ __('pub_theme::navigation.skip_to_content') }}
+            {{ __('pub_theme::layout.skip_links.main_content.label') }}
         </a>
         {{ $slot }}
 
