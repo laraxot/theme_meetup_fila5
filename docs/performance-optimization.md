@@ -8,4 +8,4 @@ updated: 2026-05-21
 
 Copia scaffold rimossa. **Fonte canonica** (wiki temi condivisa):
 
-**[PERFORMANCE-OPTIMIZATION.md](../../docs/PERFORMANCE-OPTIMIZATION.md)**
+**[performance-optimization.md](../../docs/performance-optimization.md)**

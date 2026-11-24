@@ -8,4 +8,4 @@ updated: 2026-05-21
 
 Copia scaffold rimossa. **Fonte canonica** (wiki temi condivisa):
 
-**[QMD-SETUP.md](../../docs/QMD-SETUP.md)**
+**[qmd-setup.md](../../docs/qmd-setup.md)**

@@ -8,4 +8,4 @@ updated: 2026-05-21
 
 Copia scaffold rimossa. **Fonte canonica** (wiki temi condivisa):
 
-**[ON-DEMAND-PATTERN.md](../../docs/ON-DEMAND-PATTERN.md)**
+**[on-demand-pattern.md](../../docs/on-demand-pattern.md)**
