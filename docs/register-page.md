@@ -18,7 +18,7 @@ La registrazione e' la pagina a piu' alta conversione del sito: deve essere acca
 | Modulo Gdpr | `Modules\Gdpr\Filament\Widgets\Auth\RegisterWidget` (Livewire, estende `XotBaseWidget`) | campi, validazione, rate limit, consensi, creazione utente |
 | Modulo Gdpr | `Modules/Gdpr/lang/<locale>/register.php` (`gdpr::register.*`) | tutti i testi della pagina e del form |
 | Modulo User | `CreateUserAction`, `LogRegistrationAction`, `PasswordData` | creazione utente, log, regole password |
-| Tema (override view) | `resources/views/filament/widgets/auth/register.blade.php` | markup custom del widget (consensi con link cliccabili a privacy e termini) |
+| Modulo Gdpr e tema | `Modules/Gdpr/resources/views/filament/widgets/auth/register.blade.php` e la copia in `Themes/Meetup/resources/views/filament/widgets/auth/register.blade.php` | markup custom del form (non usa `getFormSchema()`): campi e consensi con link cliccabili a privacy e termini; entrambe contengono ancora `<svg>` inline (vedi debiti) |
 
 La pagina del tema non contiene logica: e' una scelta dell'[ADR](adr/auth-forms-are-module-widgets.md) ed e' verificata da `PagesAndAuthFormsContractTest`. Proprieta' dei testi del widget: `Modules/Gdpr/docs/register-widget-copy-ownership.md`.
 
